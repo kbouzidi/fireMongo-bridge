@@ -1,3 +1,5 @@
+specVersion: v1beta
+
 name: firemongo-bridge
 version: 1.0.0
 displayName: FireMongo Bridge
@@ -115,6 +117,6 @@ params:
     default: us-central1
 
 apis:
-  - firestore.googleapis.com
+  - apiName: firestore.googleapis.com
 
 billingRequired: true 
