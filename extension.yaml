@@ -1,0 +1,120 @@
+name: firemongo-bridge
+version: 1.0.0
+displayName: FireMongo Bridge
+description: Sync Firestore collections to MongoDB in real-time with comprehensive data transformation and management APIs.
+
+author:
+  authorName: FireMongo Bridge Extension Team
+  url: https://github.com/firebase/extensions
+
+license: Apache-2.0
+
+roles:
+  - role: datastore.user
+    reason: Required to read and write Firestore documents for synchronization.
+
+resources:
+  - name: syncFunction
+    type: firebaseextensions.v1beta.function
+    description: Real-time sync function triggered by Firestore document changes
+    properties:
+      runtime: nodejs20
+      location: ${param:LOCATION}
+      memory: 512MiB
+      timeoutSeconds: 540
+      maxInstances: 1000
+      eventTrigger:
+        eventType: providers/cloud.firestore/eventTypes/document.write
+        resource: projects/${PROJECT_ID}/databases/(default)/documents/{collectionId}/{docId}
+        service: firestore.googleapis.com
+
+  - name: initialSyncFunction
+    type: firebaseextensions.v1beta.function
+    description: Initial sync function for batch processing existing documents
+    properties:
+      runtime: nodejs20
+      location: ${param:LOCATION}
+      memory: 1GiB
+      timeoutSeconds: 540
+      maxInstances: 10
+      httpsTrigger: {}
+
+  - name: managementFunction
+    type: firebaseextensions.v1beta.function
+    description: Management API for sync status and manual operations
+    properties:
+      runtime: nodejs20
+      location: ${param:LOCATION}
+      memory: 256MiB
+      timeoutSeconds: 300
+      maxInstances: 100
+      httpsTrigger: {}
+
+params:
+  - param: MONGODB_URI
+    label: MongoDB Connection String
+    description: MongoDB connection string (mongodb:// or mongodb+srv://)
+    type: string
+    secret: true
+    validationRegex: ^mongodb(\+srv)?://.*$
+    example: mongodb+srv://username:password@cluster.mongodb.net/database
+
+  - param: MONGODB_DATABASE
+    label: MongoDB Database Name
+    description: Target database name in MongoDB
+    type: string
+    validationRegex: ^[a-zA-Z0-9_-]+$
+    example: firestore_sync
+
+  - param: COLLECTION_MAPPING
+    label: Collection Mapping (Optional)
+    description: JSON mapping of Firestore collection names to MongoDB collection names
+    type: string
+    required: false
+    example: '{"users": "firestore_users", "products": "firestore_products"}'
+
+  - param: SYNC_MODE
+    label: Sync Mode
+    description: Choose between real-time or batch synchronization
+    type: select
+    options:
+      - label: Real-time (Recommended)
+        value: realtime
+      - label: Batch Only
+        value: batch
+    default: realtime
+
+  - param: PRESERVE_INDEXES
+    label: Create Indexes
+    description: Whether to create MongoDB indexes for better performance
+    type: boolean
+    default: true
+
+  - param: BATCH_SIZE
+    label: Batch Size
+    description: Number of documents to process per batch during initial sync
+    type: string
+    validationRegex: ^[1-9][0-9]*$
+    default: "100"
+
+  - param: LOCATION
+    label: Cloud Functions Region
+    description: The region where Cloud Functions will be deployed
+    type: select
+    options:
+      - label: us-central1 (Iowa)
+        value: us-central1
+      - label: us-east1 (South Carolina)
+        value: us-east1
+      - label: us-west1 (Oregon)
+        value: us-west1
+      - label: europe-west1 (Belgium)
+        value: europe-west1
+      - label: asia-northeast1 (Tokyo)
+        value: asia-northeast1
+    default: us-central1
+
+apis:
+  - firestore.googleapis.com
+
+billingRequired: true 

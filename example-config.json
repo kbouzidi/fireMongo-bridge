@@ -1,0 +1,28 @@
+{
+  "extensionName": "firemongo-bridge",
+  "version": "1.0.0",
+  "parameters": {
+    "MONGODB_URI": "mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority",
+    "MONGODB_DATABASE": "firestore_sync",
+    "COLLECTION_MAPPING": "{\"users\": \"firestore_users\", \"products\": \"firestore_products\", \"orders\": \"firestore_orders\"}",
+    "SYNC_MODE": "realtime",
+    "PRESERVE_INDEXES": true,
+    "BATCH_SIZE": "100",
+    "LOCATION": "us-central1"
+  },
+  "description": "Example configuration for FireMongo Bridge Extension",
+  "notes": [
+    "Replace MONGODB_URI with your actual MongoDB connection string",
+    "Update MONGODB_DATABASE with your target database name",
+    "Modify COLLECTION_MAPPING to match your collection structure",
+    "Choose SYNC_MODE: 'realtime' for immediate sync or 'batch' for manual sync only",
+    "Set PRESERVE_INDEXES to true for better query performance",
+    "Adjust BATCH_SIZE based on your document size and memory limits",
+    "Select LOCATION based on your Firebase project region"
+  ],
+  "exampleUsage": {
+    "initialSync": "curl -X POST https://your-project.cloudfunctions.net/initialSyncFunction",
+    "checkStatus": "curl https://your-project.cloudfunctions.net/managementFunction",
+    "manualSync": "curl -X POST https://your-project.cloudfunctions.net/managementFunction -H 'Content-Type: application/json' -d '{\"collectionName\": \"users\"}'"
+  }
+} 
