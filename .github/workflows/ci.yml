@@ -25,6 +25,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Create mongo Docker container
+        id: build_mongo_docker
+        uses: DigiPie/mongo-action@v2.0.1
+
       - name: Install dependencies
         run: npm install
 
@@ -35,4 +39,6 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm test 
+        run: npm test
+        env:
+          MONGODB_URI: ${{ steps.build_mongo_docker.outputs.connection_string }} 
