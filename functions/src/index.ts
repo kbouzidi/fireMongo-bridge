@@ -193,7 +193,7 @@ async function syncDocument(
       };
 
       // Use replaceOne with upsert for both create and update operations
-      const result = await collection.replaceOne(
+      await collection.replaceOne(
         { _firestore_id: documentId },
         documentToInsert,
         { upsert: true }

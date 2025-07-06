@@ -1,5 +1,5 @@
 // Test file for data transformation functions
-import * as admin from "firebase-admin";
+// import * as admin from "firebase-admin";
 
 // Mock Firebase Admin for testing
 jest.mock("firebase-admin", () => ({

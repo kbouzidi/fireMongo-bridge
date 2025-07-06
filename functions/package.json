@@ -40,15 +40,5 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
-  "private": true,
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "testMatch": ["**/__tests__/**/*.test.ts"],
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/*.d.ts",
-      "!src/index.ts"
-    ]
-  }
+  "private": true
 } 

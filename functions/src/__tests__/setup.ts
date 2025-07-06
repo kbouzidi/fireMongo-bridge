@@ -1,5 +1,5 @@
 // Test setup file for Jest
-import * as admin from "firebase-admin";
+// import * as admin from "firebase-admin";
 
 // Mock Firebase Admin
 jest.mock("firebase-admin", () => ({
