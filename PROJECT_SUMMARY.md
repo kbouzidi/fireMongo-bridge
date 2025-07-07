@@ -164,10 +164,12 @@ firemongo-bridge-extension/
 
 ## 💰 Pricing
 
-- **Extension Cost**: $8/month
+This extension uses Firebase's pay-per-use pricing model:
 - **Cloud Functions**: Pay per invocation (~$0.40/million)
 - **Firestore**: Standard read/write costs
 - **MongoDB**: Provider-specific costs
+
+Visit [Firebase Pricing](https://firebase.google.com/pricing) for detailed pricing information.
 
 ## 🔒 Security & Compliance
 

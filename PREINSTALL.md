@@ -2,7 +2,7 @@
 
 ## 💰 Pricing Information
 
-**Extension Cost: $8/month**
+This extension uses Firebase's pay-per-use pricing model with no fixed monthly cost.
 
 ### What's Included
 - Real-time Firestore to MongoDB synchronization
@@ -13,7 +13,7 @@
 - Comprehensive error handling and logging
 - Connection pooling and performance optimization
 
-### Additional Costs
+### Costs
 - **Cloud Functions**: Pay per invocation (~$0.40/million invocations)
 - **Firestore**: Standard read/write costs (~$0.06/100K reads, ~$0.18/100K writes)
 - **MongoDB**: Your MongoDB provider costs (Atlas, self-hosted, etc.)
@@ -25,10 +25,11 @@ For a typical application with:
 - 100 daily reads
 
 **Monthly Cost Breakdown:**
-- Extension License: $8.00
 - Cloud Functions: ~$0.12
 - Firestore Operations: ~$0.05
-- **Total: ~$8.17/month**
+- **Total: ~$0.17/month**
+
+Visit [Firebase Pricing](https://firebase.google.com/pricing) for detailed pricing information.
 
 ## 📋 Prerequisites
 

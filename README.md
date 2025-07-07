@@ -246,19 +246,20 @@ Failed operations are logged with detailed error information for manual recovery
 
 ## 💰 Pricing
 
-- **Extension Cost**: $8/month
-- **Cloud Functions**: Pay per invocation and compute time
-- **Firestore**: Standard read/write costs
+This extension uses Firebase's pay-per-use pricing model:
+
+- **Cloud Functions**: Pay per invocation and compute time (~$0.40/million invocations)
+- **Firestore**: Standard read/write costs (~$0.06/100K reads, ~$0.18/100K writes)
 - **MongoDB**: Your MongoDB provider costs
 
-### Cost Breakdown
+### Cost Estimation
 
-| Component | Cost |
-|-----------|------|
-| Extension License | $8/month |
-| Cloud Functions | ~$0.40/million invocations |
-| Firestore Reads | ~$0.06/100K reads |
-| Firestore Writes | ~$0.18/100K writes |
+Costs depend on your usage:
+- **Low usage** (< 1M function invocations/month): ~$1-5/month
+- **Medium usage** (1-10M invocations/month): ~$5-50/month
+- **High usage** (> 10M invocations/month): Varies based on volume
+
+Visit [Firebase Pricing](https://firebase.google.com/pricing) for detailed pricing information.
 
 ## 🔒 Security
 
