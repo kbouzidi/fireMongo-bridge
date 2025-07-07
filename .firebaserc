@@ -1,5 +1,13 @@
 {
   "projects": {
     "default": "bkrtools"
+  },
+  "targets": {},
+  "etags": {
+    "bkrtools": {
+      "extensionInstances": {
+        "firemongo-bridge": "39cb374a169392e5ef23709dd34bf1b9ae452944f920ac65884ee8ccbd873404"
+      }
+    }
   }
 }

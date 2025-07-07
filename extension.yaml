@@ -1,7 +1,7 @@
 specVersion: v1beta
 
 name: firemongo-bridge
-version: 1.0.0
+version: 1.0.1
 displayName: FireMongo Bridge
 description: Sync Firestore collections to MongoDB in real-time with comprehensive data transformation and management APIs.
 
@@ -22,8 +22,8 @@ resources:
     properties:
       runtime: nodejs20
       location: ${param:LOCATION}
-      memory: 512MiB
-      timeoutSeconds: 540
+      availableMemoryMb: 512
+      timeout: 540s
       maxInstances: 1000
       eventTrigger:
         eventType: providers/cloud.firestore/eventTypes/document.write
@@ -36,8 +36,8 @@ resources:
     properties:
       runtime: nodejs20
       location: ${param:LOCATION}
-      memory: 1GiB
-      timeoutSeconds: 540
+      availableMemoryMb: 1024
+      timeout: 540s
       maxInstances: 10
       httpsTrigger: {}
 
@@ -47,8 +47,8 @@ resources:
     properties:
       runtime: nodejs20
       location: ${param:LOCATION}
-      memory: 256MiB
-      timeoutSeconds: 300
+      availableMemoryMb: 256
+      timeout: 300s
       maxInstances: 100
       httpsTrigger: {}
 
@@ -89,8 +89,13 @@ params:
   - param: PRESERVE_INDEXES
     label: Create Indexes
     description: Whether to create MongoDB indexes for better performance
-    type: boolean
-    default: true
+    type: select
+    options:
+      - label: Yes (Recommended)
+        value: "true"
+      - label: No
+        value: "false"
+    default: "true"
 
   - param: BATCH_SIZE
     label: Batch Size
