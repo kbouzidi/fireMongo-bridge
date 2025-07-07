@@ -29,6 +29,7 @@
   "exclude": [
     "node_modules",
     "lib",
-    "**/*.test.ts"
+    "**/*.test.ts",
+    "src/__tests__"
   ]
 } 
