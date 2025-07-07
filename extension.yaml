@@ -1,7 +1,7 @@
 specVersion: v1beta
 
 name: firemongo-bridge
-version: 1.0.1
+version: 1.0.2
 displayName: FireMongo Bridge
 description: Sync Firestore collections to MongoDB in real-time with comprehensive data transformation and management APIs.
 
