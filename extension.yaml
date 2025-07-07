@@ -10,6 +10,8 @@ author:
   url: https://github.com/firebase/extensions
 
 license: Apache-2.0
+sourceUrl: https://github.com/kbouzidi/fireMongo-bridge
+releaseNotesUrl: https://github.com/kbouzidi/fireMongo-bridge/blob/main/CHANGELOG.md
 
 roles:
   - role: datastore.user
