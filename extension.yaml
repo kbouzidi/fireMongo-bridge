@@ -1,13 +1,13 @@
 specVersion: v1beta
 
 name: firemongo-bridge
-version: 1.0.2
+version: 1.0.3
 displayName: FireMongo Bridge
 description: Sync Firestore collections to MongoDB in real-time with comprehensive data transformation and management APIs.
 
 author:
   authorName: FireMongo Bridge Extension Team
-  url: https://github.com/firebase/extensions
+  url: https://github.com/kbouzidi
 
 license: Apache-2.0
 sourceUrl: https://github.com/kbouzidi/fireMongo-bridge
