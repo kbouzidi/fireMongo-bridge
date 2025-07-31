@@ -17,6 +17,10 @@ roles:
   - role: datastore.user
     reason: Required to read and write Firestore documents for synchronization.
 
+externalServices:
+  - name: MongoDB
+    pricingUri: https://www.mongodb.com/pricing
+
 resources:
   - name: syncFunction
     type: firebaseextensions.v1beta.function
@@ -53,7 +57,12 @@ resources:
       timeout: 300s
       maxInstances: 100
       httpsTrigger: {}
-
+tags:
+  [
+    mongodb,
+    Database,
+    Data synchronization
+  ]
 params:
   - param: MONGODB_URI
     label: MongoDB Connection String
@@ -126,4 +135,4 @@ params:
 apis:
   - apiName: firestore.googleapis.com
 
-billingRequired: true 
+billingRequired: true
