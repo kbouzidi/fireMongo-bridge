@@ -59,9 +59,8 @@ resources:
       httpsTrigger: {}
 tags:
   [
-    mongodb,
-    Database,
-    Data synchronization
+    utilities,
+    Database
   ]
 params:
   - param: MONGODB_URI
