@@ -133,5 +133,6 @@ params:
 
 apis:
   - apiName: firestore.googleapis.com
+    reason: Required to read Firestore documents for real-time synchronization. The extension listens to Firestore document write events and reads document data to sync to MongoDB. Without this API, the extension cannot access Firestore data to perform the core synchronization functionality.
 
 billingRequired: true
