@@ -1,6 +1,6 @@
 {
   "name": "firemongo-bridge-extension-functions",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "Cloud Functions for FireMongo Bridge extension",
   "main": "lib/index.js",
   "scripts": {
