@@ -1,7 +1,7 @@
 specVersion: v1beta
 
 name: firemongo-bridge
-version: 1.0.6
+version: 1.0.7
 displayName: FireMongo Bridge
 description: Sync Firestore collections to MongoDB in real-time with comprehensive data transformation and management APIs.
 icon: icon.png
@@ -66,8 +66,7 @@ params:
   - param: MONGODB_URI
     label: MongoDB Connection String
     description: MongoDB connection string (mongodb:// or mongodb+srv://)
-    type: string
-    secret: true
+    type: secret
     validationRegex: ^mongodb(\+srv)?://.*$
     example: mongodb+srv://username:password@cluster.mongodb.net/database
 
