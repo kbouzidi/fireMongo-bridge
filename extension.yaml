@@ -16,6 +16,8 @@ releaseNotesUrl: https://github.com/kbouzidi/fireMongo-bridge/blob/main/CHANGELO
 roles:
   - role: datastore.user
     reason: Required to read and write Firestore documents for synchronization.
+  - role: cloudbuild.builds.builder
+    reason: Allows the service account to build the cloud functions.
 
 externalServices:
   - name: MongoDB
